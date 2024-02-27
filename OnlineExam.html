@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=checkbox]:checked {
+            accent-color: red;
+        }
+        input[type=radio]:checked {
+            accent-color: black;
+        }
+        .item{
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:rgba(177,30,59,255);color: antiquewhite; width: 100%; height:80px; margin:-10px;">
+        <div style="position: relative;left: 25px; top: 25px; font-size: 22px; width: 10%; float: left;">
+            Trang chủ
+        </div>
+        <div style="position: relative; top: 30px ;font-size: 15px; width: 10%; float: right">
+            Nguyễn Văn A
+            <img class="item" src="C:\Users\admin\Desktop\icon.png" alt="" width="10%" style="position: absolute; top: 1.5px; left: -20px;" >
+        </div>
+        <div style="position: relative; top: -25px ;left: 730px; width: 10%; ">
+            <img src="C:\Users\admin\Desktop\con pt.png" alt="" width="50%">
+        </div>
+    </div>
+   <div style="position: relative; top: 40px; left: 50px;">
+    <form action="">
+        <table width="60%" border="1">
+            <tr>
+                <td id="h1">
+                    <span style="font-weight: bold;">Câu 1:</span>
+                    Học Viện Công nghệ Bưu chính Viễn thông thành lập vào thời gian nào?
+                    <input type="checkbox" id="myCheckbox" onclick="highlightRow(this,'#eee8aa');">
+                    <br>
+                    A. <input type="radio" name="c1"> 02/9/1945
+                    <br>
+                    B. <input type="radio" name="c1"> 17/9/1997
+                    <br>
+                    C. <input type="radio" name="c1"> 30/04/1975
+                    <br>
+                    D. <input type="radio" name="c1"> 23/11/2003
+                </td>
+            </tr>
+            <tr>
+                <td id="h2">
+                    <span style="font-weight: bold;">Câu 2:</span>
+                    1+1=?
+                    <input type="checkbox" id="myCheckbox" onclick="highlightRow(this,'#eee8aa');">
+                    <br>
+                    A. <input type="radio" name="c2"> 2
+                    <br>
+                    B. <input type="radio" name="c2"> 3
+                    <br>
+                    C. <input type="radio" name="c2"> 4
+                    <br>
+                    D. <input type="radio" name="c2"> 5
+                </td>
+            </tr>
+            <tr>
+                <td id="h3">
+                    <span style="font-weight: bold;">Câu 3:</span>
+                    Ai yêu Bác Hồ Chí Minh hơn.....
+                    <input type="checkbox" id="myCheckbox" onclick="highlightRow(this,'#eee8aa');">
+                    <br>
+                    A. <input type="radio" name="c3"> Thiếu niên, nhi đồng
+                    <br>
+                    B. <input type="radio" name="c3"> Hội phụ lão 
+                    <br>
+                    C. <input type="radio" name="c3"> Trẻ sơ sinh
+                    <br>
+                    D. <input type="radio" name="c3"> Trung niên
+                </td>
+            </tr>
+            <tr>
+                <td id="h4">
+                    <span style="font-weight: bold;">Câu 4:</span>
+                    Đâu là thủ đô của nước Cộng hòa xã hội chủ nghĩa Việt Nam
+                    <input type="checkbox" id="myCheckbox" onclick="highlightRow(this,'#eee8aa');">
+                    <br>
+                    A. <input type="radio" name="c4"> Hà Nội
+                    <br>
+                    B. <input type="radio" name="c4"> Tp.Hồ Chí Minh
+                    <br>
+                    C. <input type="radio" name="c4"> Đà Nẵng
+                    <br>
+                    D. <input type="radio" name="c4"> Nam Định
+                </td>
+            </tr>
+            <tr>
+                <td id="h5">
+                    <span style="font-weight: bold;">Câu 5:</span>
+                    Cầu thủ vĩ đại nhất lịch sử bóng đá thế giới là:
+                    <input type="checkbox" id="myCheckbox" onclick="highlightRow(this,'#eee8aa');">
+                    <br>
+                    A. <input type="radio" name="c5"> Cristiano Ronaldo
+                    <br>
+                    B. <input type="radio" name="c5"> Anh Liêm 
+                    <br>
+                    C. <input type="radio" name="c5"> Thất thảo
+                    <br>
+                    D. <input type="radio" name="c5"> CR7
+                </td>
+            </tr>
+        </table>
+        <table width="5%" border="1">
+            <tr>
+                <td><a href="">1</a></td>
+                <td><a href="">2</a></td>
+                <td><a href="">3</a></td>
+                <td>...</td>
+                <td><a href="">5</a></td>
+            </tr>
+        </table>
+        <button type="button" onclick="timeout()">Nộp bài</button>
+        <div id="timer" style="position: relative; background-color: rgba(177,30,59,255); width: 4%; height: 30px; 
+        float: right;left: -300px; top: -550px; border-radius: 10px; text-align: center; line-height: -100px; font-size: 18px;">
+            
+        </div>
+        <div id="in" style="position: relative; ; width: 30%; height: 200px; 
+        float: right;left: -50px; top: -500px; border-radius: 10px; text-align: center; line-height: -100px; font-size: 25px; color: darkred;">
+            
+        </div>
+    </form>
+   </div>
+   <script>
+        function highlightRow (element, color){
+            var temporary;
+            temporary=element;
+            while (element.tagName.toUpperCase() != 'TR' && element != null)
+                element = document.all ? element.parentElement : element.parentNode;
+            if (element){ 
+                if (temporary.checked)
+                element.bgColor = color;
+                else
+                element.bgColor = '#ffffff'; 
+            }
+        }
+
+
+        let count = 60;
+        const timer = setInterval(function() {
+        count--;
+        document.getElementById("timer").innerHTML=count;
+        if (count === 0) {
+            timeout();
+        }
+        }, 1000);
+
+
+        function timeout(){
+            document.getElementById("in").innerHTML="Nộp bài thành công!";
+            clearInterval(timer);
+            document.getElementById("timer").innerHTML="";
+        }
+  </script>
+</body>
+</html>
